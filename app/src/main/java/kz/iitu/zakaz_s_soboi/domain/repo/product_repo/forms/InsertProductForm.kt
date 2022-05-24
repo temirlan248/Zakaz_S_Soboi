@@ -5,4 +5,5 @@ data class InsertProductForm(
     val description: String,
     val price: Int,
     val imageUrl: String,
+    val categoryId: Int
 )
