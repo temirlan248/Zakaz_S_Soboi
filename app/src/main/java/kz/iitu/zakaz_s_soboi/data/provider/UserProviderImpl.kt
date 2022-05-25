@@ -21,9 +21,9 @@ class UserProviderImpl @Inject constructor(
             return field
         }
 
-    override fun getToken(): Int? = sharedPreferences?.getInt(
+    override fun getToken(): Int = sharedPreferences?.getInt(
         KEY_AUTH_TOKEN, UN_LOGGED_USER_ID
-    )
+    ) ?: UN_LOGGED_USER_ID
 
     override fun saveToken(token: Int?) {
         val preferences = sharedPreferences

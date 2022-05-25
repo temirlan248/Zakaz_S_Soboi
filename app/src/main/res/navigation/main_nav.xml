@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="kz.iitu.zakaz_s_soboi.presentation.pages.main.history_page.HistoryFragment"
+        android:label="history_fragment"
+        tools:layout="@layout/history_fragment" >
+        <action
+            android:id="@+id/action_historyFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="kz.iitu.zakaz_s_soboi.presentation.pages.auth.login_page.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/home_navigation" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="kz.iitu.zakaz_s_soboi.presentation.pages.auth.registration_page.RegistrationFragment"
+        android:label="registration_fragment"
+        tools:layout="@layout/registration_fragment" />
+    <navigation android:id="@+id/home_navigation"
+        app:startDestination="@id/homeFragment">
+        <fragment
+            android:id="@+id/homeFragment"
+            android:name="kz.iitu.zakaz_s_soboi.presentation.pages.main.home_page.HomeFragment"
+            android:label="home_fragment"
+            tools:layout="@layout/home_fragment">
+            <action
+                android:id="@+id/action_homeFragment_to_restaurantFragment"
+                app:destination="@id/restaurantFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/cartFragment"
+            android:name="kz.iitu.zakaz_s_soboi.presentation.pages.main.cart_page.CartFragment"
+            android:label="cart_fragment"
+            tools:layout="@layout/cart_fragment" >
+            <action
+                android:id="@+id/action_cartFragment_to_homeFragment"
+                app:destination="@id/homeFragment"
+                app:popUpTo="@id/homeFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/restaurantFragment"
+            android:name="kz.iitu.zakaz_s_soboi.presentation.pages.main.restaurant_page.RestaurantFragment"
+            android:label="restaurant_fragment"
+            tools:layout="@layout/restaurant_fragment">
+            <action
+                android:id="@+id/action_restaurantFragment_to_cartFragment"
+                app:destination="@id/cartFragment" />
+            <argument
+                android:name="restaurantId"
+                app:argType="integer" />
+        </fragment>
+    </navigation>
+</navigation>

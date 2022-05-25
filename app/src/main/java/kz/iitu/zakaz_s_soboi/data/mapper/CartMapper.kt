@@ -9,18 +9,18 @@ fun CartDto.toCart() =
     Cart(
         id = cart.id,
         userId = cart.userId,
-        itemList = items.map { it.toCartItem() },
+        itemList = items.map { it.toCartItem() } as MutableList<CartItem>,
         restaurantImage = restaurant.imageUrl,
         restaurantName = restaurant.name,
-        restaurantLocation = restaurant.location
+        restaurantLocation = restaurant.location,
+        restaurantId = restaurant.id
     )
 
 fun CartItemDto.toCartItem() =
     CartItem(
         id = item.id,
+        productId = product.id,
         productName = product.name,
-        productImage = product.imageUrl,
-        productDescription = product.description,
         productPrice = product.price,
         count = item.count
     )
